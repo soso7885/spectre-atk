@@ -1,6 +1,6 @@
 /*********************************************************************
 *
-* Spectre PoC
+* Spectre atk
 *
 * This source code originates from the example code provided in the 
 * "Spectre Attacks: Exploiting Speculative Execution" paper found at
@@ -10,21 +10,12 @@
 * improve documentation where possible.
 *
 **********************************************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#ifdef _MSC_VER
-#include <intrin.h> /* for rdtsc, rdtscp, clflush */
-#pragma optimize("gt",on)
-#else
 #include <x86intrin.h> /* for rdtsc, rdtscp, clflush */
-#endif
 
-/********************************************************************
-Victim code.
-********************************************************************/
 unsigned int array1_size = 16;
 uint8_t array1[160] = {
 	1, 2, 3, 4, 5, 6,
